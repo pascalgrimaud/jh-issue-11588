@@ -1,0 +1,11 @@
+id;my_field_a;my_field_b;my_field_c
+1;AAA;BBB;aaa_aaa
+2;BBB;aaa_aaa;aaa_aaa
+3;BBB;aaa_aaa;aaa_aaa
+4;BBB;BBB;b and b
+5;AAA;BBB;b and b
+6;AAA;aaa_aaa;aaa_aaa
+7;BBB;BBB;b and b
+8;BBB;aaa_aaa;aaa_aaa
+9;BBB;aaa_aaa;aaa_aaa
+10;BBB;BBB;b and b

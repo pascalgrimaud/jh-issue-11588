@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.home.title">Field Test Enum With Values</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-field-test-enum-with-value" [routerLink]="['/field-test-enum-with-value/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.home.createLabel">
+            Create a new Field Test Enum With Value
+            </span>
+        </button>
+    </h2>
+
+    <my-prefix-alert-error></my-prefix-alert-error>
+
+    <my-prefix-alert></my-prefix-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="fieldTestEnumWithValues?.length === 0">
+        <span jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.home.notFound">No fieldTestEnumWithValues found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="fieldTestEnumWithValues?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.myFieldA">My Field A</span></th>
+                    <th scope="col" ><span jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.myFieldB">My Field B</span></th>
+                    <th scope="col" ><span jhiTranslate="sampleWebsocketApp.fieldTestEnumWithValue.myFieldC">My Field C</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fieldTestEnumWithValue of fieldTestEnumWithValues ;trackBy: trackId">
+                    <td><a [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'view']">{{ fieldTestEnumWithValue.id }}</a></td>
+                    <td jhiTranslate="{{ 'sampleWebsocketApp.MyEnumA.' + fieldTestEnumWithValue.myFieldA }}">{{ fieldTestEnumWithValue.myFieldA }}</td>
+                    <td jhiTranslate="{{ 'sampleWebsocketApp.MyEnumB.' + fieldTestEnumWithValue.myFieldB }}">{{ fieldTestEnumWithValue.myFieldB }}</td>
+                    <td jhiTranslate="{{ 'sampleWebsocketApp.MyEnumC.' + fieldTestEnumWithValue.myFieldC }}">{{ fieldTestEnumWithValue.myFieldC }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(fieldTestEnumWithValue)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
